@@ -25,3 +25,7 @@ class LogisticRegression:
     def binary_cross_entropy(self, y_true, y_pred):
         m = len(y_true)
         return - (1 / m) * np.sum(y_true * np.log(y_pred + 1e-10) + (1 - y_true) * np.log(1 - y_pred + 1e-10))
+
+    def predict_proba(self, X):
+        linear_model = X @ self.coef_
+        return self.sigmoid(linear_model)
