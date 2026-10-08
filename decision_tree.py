@@ -38,18 +38,9 @@ class DecisionTree:
         return best_feature
 
     def _calculate_gain(self, feature_values, y):
-        # Calculate gain based on Gini or entropy
-        # This is a placeholder for simplicity
-        return np.random.rand()
-
-    def predict(self, X):
-        return np.array([self._traverse_tree(x, self.tree) for x in X])
-
-    def _traverse_tree(self, x, tree):
-        if not isinstance(tree, tuple):
-            return tree
-        feature, left_tree, right_tree = tree
-        if x[feature] < np.median(x[feature]):
-            return self._traverse_tree(x, left_tree)
-        else:
-            return self._traverse_tree(x, right_tree)
+        # Add a check for empty feature_values
+        if len(feature_values) == 0:
+            return 0
+        # Continue with gain calculation...
+        # (Assuming there's more code here)
+        pass
