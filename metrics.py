@@ -3,7 +3,7 @@ import numpy as np
 class Metrics:
     @staticmethod
     def accuracy(y_true, y_pred):
-        return np.mean(y_true == y_pred
+        return np.mean(y_true == y_pred)
 
     @staticmethod
     def precision(y_true, y_pred):
