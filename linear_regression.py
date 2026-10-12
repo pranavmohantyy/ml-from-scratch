@@ -17,14 +17,5 @@ class LinearRegression:
         m = X_b.shape[0]
         self.coef_ = np.random.randn(X_b.shape[1])
         for _ in range(n_iterations):
-            gradients = 2/m * X_b.T @ (X_b @ self.coef_ - y)
+            gradients = -2/m * X_b.T @ (y - X_b @ self.coef_)
             self.coef_ -= learning_rate * gradients
-
-    def predict(self, X):
-        X_b = np.c_[np.ones((X.shape[0], 1)), X]
-        return X_b @ self.coef_
-
-    def r2_score(self, y_true, y_pred):
-        ss_total = np.sum((y_true - np.mean(y_true)) ** 2)
-        ss_residual = np.sum((y_true - y_pred) ** 2)
-        return 1 - (ss_residual / ss_total)
