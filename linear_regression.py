@@ -19,3 +19,7 @@ class LinearRegression:
         for _ in range(n_iterations):
             gradients = -2/m * X_b.T @ (y - X_b @ self.coef_)
             self.coef_ -= learning_rate * gradients
+
+    def predict(self, X):
+        X_b = np.c_[np.ones((X.shape[0], 1)), X]
+        return X_b @ self.coef_
