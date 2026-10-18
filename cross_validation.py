@@ -30,4 +30,4 @@ class CrossValidator:
         return np.mean(scores), np.std(scores)
 
     def _calculate_score(self, y_true, y_pred):
-        return np.mean(y_true == y_pred
+        return Metrics.accuracy(y_true, y_pred)
